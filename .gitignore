@@ -1,0 +1,10 @@
+# Vercel
+.vercel
+
+# Respaldos de trabajo: el historial de git los reemplaza
+*.bak-*
+
+# Sistema
+node_modules/
+.DS_Store
+Thumbs.db

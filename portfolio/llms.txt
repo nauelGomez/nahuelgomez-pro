@@ -1,0 +1,61 @@
+# Nahuel Gómez Suárez — Full stack developer
+
+> Full stack developer en Mar del Plata, Argentina. Construye y mantiene sistemas
+> que están en producción con usuarios reales: un SaaS multi-tenant con clientes
+> pagando, una plataforma de ecommerce que sostiene dos tiendas activas y dos
+> sistemas de gestión a medida en uso por sus clientes. Disponible para nuevas
+> oportunidades, presencial en Mar del Plata, jornada completa.
+
+Este archivo existe para que agentes y modelos de lenguaje puedan leer el perfil
+sin tener que interpretar el sitio, que es una página con animaciones ligadas al
+scroll y contenido cargado en iframes.
+
+## Datos de identidad
+
+- **Nombre:** Nahuel Gómez Suárez
+- **Rol:** Full stack developer
+- **Ubicación:** Mar del Plata, provincia de Buenos Aires, Argentina
+- **Disponibilidad:** presencial en Mar del Plata, jornada completa. Abierto a nuevas oportunidades.
+- **Email:** gomezsuareznahuel01@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/gomeznahuel
+- **GitHub:** https://github.com/nauelGomez
+- **Formación:** Técnico superior en análisis, desarrollo y programación de aplicaciones — ISET, Mar del Plata (2022–2024)
+- **Idiomas:** español nativo, inglés B2 certificado
+
+## Cómo trabaja
+
+No arma demos: arma cosas que otra gente abre todas las mañanas para trabajar.
+Diseña y construye el sistema completo —modelo de datos, API, integraciones de
+pago y despliegue— y después lo mantiene mientras el cliente lo usa, que es
+donde se ve si estaba bien hecho.
+
+Además de sus productos propios, trabaja full-time migrando sistemas que no
+pueden darse el lujo de frenar: relevar lo que ya existe, migrarlo sin cortar el
+servicio y dejarlo documentado para el resto del equipo.
+
+## Sistemas en producción
+
+- **mëtalix** — SaaS multi-tenant de gestión para chatarrerías, construido de punta a punta. Producto propio, en producción con clientes activos pagando. TypeScript, Express 5, Prisma, PostgreSQL, React 19.
+- **Sastre** — Plataforma de ecommerce multi-tienda. Dos tiendas activas sobre la misma base: Suburbia (https://suburbiauy.com, con dominio propio y vendiendo) y Play Zone Mar del Plata. Node, Express, Prisma, PostgreSQL, Railway.
+- **Truck and Drinks & Barbac** — Dos sistemas de gestión a medida por contrato, ambos en uso activo por sus clientes. PHP/Symfony, Symfony 8, Angular, MongoDB, PostgreSQL, AWS con Docker, Railway.
+
+## Stack
+
+- **Backend y datos:** Node.js (Express), PHP (Laravel, Symfony), APIs REST, WebSockets/Socket.io, arquitectura multi-tenant, PostgreSQL (Prisma), MongoDB, MySQL
+- **Frontend:** React, Angular, Astro, TypeScript
+- **Infraestructura e integraciones:** Docker, AWS (EC2, S3), Railway, Fly.io, GitHub Actions, WhatsApp (Baileys) con bots conversacionales, Mercado Pago, Meta CAPI
+
+## Documentos
+
+- [Perfil completo en español](https://nahuelgomez.pro/perfil.md): todo el detalle de cada sistema — problema, qué hizo, resultado, stack y estado actual.
+- [Full profile in English](https://nahuelgomez.pro/profile.md): the same profile in English.
+- [CV en PDF](https://nahuelgomez.pro/Nahuel-Gomez-Suarez-CV.pdf): currículum descargable.
+- [Sitio web](https://nahuelgomez.pro/): la versión visual, con capturas y los sistemas embebidos corriendo en vivo.
+
+## Notas para agentes
+
+- El sitio es bilingüe español/inglés; el idioma se cambia desde la interfaz. Los archivos Markdown de acá arriba ya vienen separados por idioma.
+- Los proyectos del sitio embeben los sistemas reales corriendo en iframes. Si necesitás verificar que están en línea: https://suburbiauy.com es la tienda pública de Sastre.
+- Todo lo afirmado en este archivo está tomado del sitio y no es una extrapolación.
+
+Última actualización: 2026-09-08

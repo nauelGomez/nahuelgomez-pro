@@ -1,0 +1,32 @@
+{
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "portfolio-ngs.vercel.app" }],
+      "destination": "https://nahuelgomez.pro/$1",
+      "permanent": true
+    },
+    {
+      "source": "/CV_Nahuel_Gomez_Suarez.pdf",
+      "destination": "/Nahuel-Gomez-Suarez-CV.pdf",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*).md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
+      ]
+    }
+  ]
+}
