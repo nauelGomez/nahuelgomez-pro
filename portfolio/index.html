@@ -1480,6 +1480,25 @@ a{color:inherit}
       ctx.globalAlpha = 1;
     }
 
+    /* El stagger se instala sólo si el viaje realmente va a correr. Antes se
+       instalaba siempre y se deshacía desde el loop: en celular el loop no
+       llega a correr (rAF no dispara con la pestaña en segundo plano) y las
+       tres secciones quedaban invisibles para siempre. Si el viaje no corre,
+       las secciones conservan su .scroll-reveal y las maneja el reveal de
+       siempre. */
+    function prepare(t){
+      if(t.prepared) return;
+      t.prepared = true;
+      t.scenes.forEach(function(sec){
+        sec.classList.remove('scroll-reveal');
+        sec.querySelectorAll('.sr-child').forEach(function(kid,j){
+          kid.style.cssText = 'opacity:0;transform:translate3d(0,26px,0);' +
+            'transition:opacity .8s cubic-bezier(.16,1,.3,1) ' + (j*110) + 'ms,' +
+            'transform .8s cubic-bezier(.16,1,.3,1) ' + (j*110) + 'ms';
+        });
+      });
+    }
+
     function children(sec,on){
       if(sec._lit === on) return;
       sec._lit = on;
@@ -1496,7 +1515,7 @@ a{color:inherit}
       if(t.on === v) return;
       t.on = v;
       t.el.classList.toggle('is-on', v);
-      if(v){ resize(t); return; }
+      if(v){ prepare(t); resize(t); return; }
       t.el.style.removeProperty('--warp');
       t.scenes.forEach(function(sec){
         sec.style.opacity = '';
@@ -1568,16 +1587,6 @@ a{color:inherit}
       }
       el.style.setProperty('--warp-h', (n*145) + 'vh');
 
-      scenes.forEach(function(sec){
-        /* el reveal secuencial viejo ya no toca estas secciones */
-        sec.classList.remove('scroll-reveal');
-        sec.querySelectorAll('.sr-child').forEach(function(kid,j){
-          kid.style.cssText = 'opacity:0;transform:translate3d(0,26px,0);' +
-            'transition:opacity .8s cubic-bezier(.16,1,.3,1) ' + (j*110) + 'ms,' +
-            'transform .8s cubic-bezier(.16,1,.3,1) ' + (j*110) + 'ms';
-        });
-      });
-
       var t = {
         el: el, sky: skyEl, canvas: canvas, ctx: canvas.getContext('2d'),
         scenes: scenes, bands: bands, hold: hold, n: n,
@@ -1585,9 +1594,13 @@ a{color:inherit}
            filtrarlas cuesta carisimo; con opacidad y transform alcanza. */
         blur: !el.hasAttribute('data-flat'),
         pager: Array.prototype.slice.call(el.querySelectorAll('.warp-pager button')),
-        on: false, cur: 0, boost: 0, W: 0, H: 0, flock: [], ink: '', tick: 0
+        /* null y no false: con false, el primer setOn(false) —el caso de
+           celular, donde el viaje nunca se activa— salía sin hacer nada y
+           los hijos quedaban en opacity:0 para siempre. */
+        on: null, cur: 0, boost: 0, W: 0, H: 0, flock: [], ink: '', tick: 0
       };
       tracks.push(t);
+      if(mq.matches) prepare(t);   /* en celular no se toca nada */
 
       /* el punto donde la escena i esta entera */
       function goTo(i){
